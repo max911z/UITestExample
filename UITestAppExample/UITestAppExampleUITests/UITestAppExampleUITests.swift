@@ -16,28 +16,19 @@ class UITestAppExampleUITests: XCTestCase {
     override func tearDownWithError() throws {
     }
 
-    func testSuccessAuthFlow() throws {
+    func testSuccessAuthFlowWithValidInfo() throws {
         let app = XCUIApplication()
-        app.launch()
-
 		let usernameField = app.textFields["Username"]
-		XCTAssertTrue(usernameField.exists)
+		let passwordSecureTextField = app.secureTextFields["Password"]
+		let buttonContinue = app.buttons["Continue"]
+		let accountLabel = app.staticTexts["Welcome!"]
 
+		app.launch()
 		usernameField.tap()
 		usernameField.typeText("student")
-
-		let passwordSecureTextField = app.secureTextFields["Password"]
-		XCTAssertTrue(passwordSecureTextField.exists)
-
 		passwordSecureTextField.tap()
 		passwordSecureTextField.typeText("password")
-
-		let buttonContinue = app.buttons["Continue"]
-		XCTAssertTrue(buttonContinue.exists)
-
 		buttonContinue.tap()
-
-		let accountLabel = app.staticTexts["Welcome!"]
 		XCTAssertTrue(accountLabel.exists)
     }
 

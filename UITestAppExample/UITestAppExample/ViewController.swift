@@ -34,9 +34,9 @@ class ViewController: UIViewController {
 	}()
 
 	private let password: UITextField = {
-		let field = UITextField()
-		field.isSecureTextEntry = true
+		let field = UITextField()		
 		field.placeholder = "Password"
+		field.isSecureTextEntry = true
 		field.translatesAutoresizingMaskIntoConstraints = false
 		field.autocapitalizationType = .none
 		field.autocorrectionType = .no
